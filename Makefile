@@ -3,10 +3,10 @@ prepare:
 	sudo apt-get -qq -y install curl
 
 build:
-	docker build -t silvio/docker-languagetool .
+	docker build -t smashdocs/languagetool .
 
 test:
-	docker run -d --name languagetool -p 8010:8010 silvio/docker-languagetool
+	docker run -d --name languagetool -p 8010:8010 smashdocs/languagetool
 	sleep 5
 
 	echo "get all languages"
