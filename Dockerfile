@@ -10,12 +10,12 @@ RUN set -ex \
     && apt-get install -y \
         bash \
         openjdk-8-jre-headless \
-        unzip
+        unzip \
+        wget
 
 ENV VERSION 4.5
-ADD https://www.languagetool.org/download/LanguageTool-$VERSION.zip /LanguageTool-$VERSION.zip
-
-RUN unzip LanguageTool-$VERSION.zip \
+RUN wget https://www.languagetool.org/download/LanguageTool-$VERSION.zip -O /LanguageTool-$VERSION.zip \
+    && unzip LanguageTool-$VERSION.zip \
     && rm LanguageTool-$VERSION.zip
 
 WORKDIR /LanguageTool-$VERSION
